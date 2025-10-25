@@ -106,7 +106,7 @@ body {
     padding: 5px 0;
     margin-bottom: 5px;
     font-family: ubuntu;
-    font-size: 20px;
+    font-size: 23px;
 }
 
 #preview-top-text {
@@ -162,3 +162,4 @@ body {
 .footer-text strong {
     font-weight: bolder;
 }
+
