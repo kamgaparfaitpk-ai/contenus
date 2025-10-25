@@ -105,6 +105,8 @@ body {
 #preview-top-text, #preview-question-text {
     padding: 5px 0;
     margin-bottom: 5px;
+    font-family: ubuntu;
+    font-size: 20px;
 }
 
 #preview-top-text {
@@ -112,6 +114,7 @@ body {
     border: 1px solid #ccc;
     margin-bottom: 15px;
     padding: 10px;
+    font-weight: 700;
 }
 
 #preview-question-text {
