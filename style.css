@@ -1,0 +1,161 @@
+body {
+    font-family: 'Roboto', 'Ubuntu', sans-serif; /* Ubuntu ajoutée ici */
+    background-color: #f4f4f4;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+}
+
+/* Zone de Texte Supérieure (WYSIWYG) */
+.text-editor-container {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.toolbar {
+    padding: 5px;
+    background-color: #e9e9e9;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.toolbar button,
+.toolbar select {
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+.editable-area {
+    min-height: 150px;
+    padding: 10px;
+    outline: none;
+    overflow-y: auto;
+    resize: vertical;
+}
+
+/* Zone de Question */
+#question-input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight: bold;
+    font-family: "Ubuntu", sans-serif;
+}
+
+/* Boutons */
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    font-weight: bold;
+}
+
+.button-container button:hover {
+    background-color: #0E153F;/*#e0e0e0;*/
+}
+
+/* Zone d'Aperçu */
+.preview-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.preview-box {
+    position: relative;
+    border: 5px solid #0E153F; /* Bordure bleu bien foncé */
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 20px 20px 50px 20px; /* Espace pour le footer */
+    min-height: 200px;
+    background-color: #fff;
+}
+
+#preview-content {
+    min-height: 150px;
+    color: #333;
+}
+
+#preview-top-text, #preview-question-text {
+    padding: 5px 0;
+    margin-bottom: 5px;
+}
+
+#preview-top-text {
+    min-height: 50px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+#preview-question-text {
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+
+/* Watermark Overlay */
+.watermark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.watermark-image {
+    width: 80%;
+    height: 80%;
+    opacity: 0.15;
+}
+
+
+/* Texte Inférieur (Footer) */
+.footer-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0E153F;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* Pour le texte gras dans le footer */
+.footer-text strong {
+    font-weight: bolder;
+}

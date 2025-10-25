@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur d'Aperçu SKU-TCF</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div class="text-editor-container">
+            <div class="toolbar">
+                <select id="line-height-select" data-command="lineHeight">
+                    <option value="1.5" selected>Interligne</option>
+                    <option value="1.0">Simple</option>
+                    <option value="1.2">1.2x</option>
+                    <option value="1.5">1.5x</option>
+                    <option value="2.0">Double</option>
+                </select>
+
+                <select id="font-family-select" data-command="fontName">
+                    <option value="Roboto" selected>Police</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Ubuntu">Ubuntu</option>
+                </select>
+
+                <select id="font-size-select" data-command="fontSize">
+                    <option value="3" selected>Taille</option>
+                    <option value="1">Très Petit</option>
+                    <option value="2">Petit</option>
+                    <option value="3">Normal</option>
+                    <option value="4">Grand</option>
+                    <option value="5">Très Grand</option>
+                    <option value="6">Énorme</option>
+                </select>
+                
+                <select id="font-color-select" data-command="foreColor">
+                    <option value="#333333" selected>Couleur</option>
+                    <option value="red">Rouge</option>
+                    <option value="blue">Bleu</option>
+                    <option value="green">Vert</option>
+                    <option value="#333333">Noir</option>
+                </select>
+
+                <button data-command="bold">Gras</button>
+                <button data-command="italic">Italique</button>
+                <button data-command="underline">Souligner</button>
+                <button data-command="justifyLeft">Gauche</button>
+                <button data-command="justifyCenter">Centre</button>
+                <button data-command="justifyRight">Droite</button>
+                <button data-command="justifyFull">Justifier</button>
+            </div>
+
+
+<style>
+.editable-area[contenteditable]:empty::before {
+  content: "Tape ton message ici...";
+  color: #888;
+  font-style: italic;
+}
+</style>
+
+<div id="top-text-area" class="editable-area" contenteditable="true"></div>
+
+
+
+        </div>
+
+        <input type="text" id="question-input" placeholder="Entrez la question ici..." value="Question :" />
+
+        <div class="button-container">
+            <button id="preview-button">Aperçu</button>
+            <button id="download-button">Enregistrer en JPG</button>
+        </div>
+
+        <p class="preview-title">Aperçu avec Watermark :</p>
+        <div id="preview-area" class="preview-box">
+            <div class="watermark-overlay">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoKCgoKCgsMDAsPEA4QDxYUExMUFiIYGhgaGCIzICUgICUgMy03LCksNy1RQDg4QFFeT0pPXnFlZXGPiI+7u/sBCgoKCgoKCwwMCw8QDhAPFhQTExQWIhgaGBoYIjMgJSAgJSAzLTcsKSw3LVFAODhAUV5PSk9ecWVlcY+Ij7u7+//CABEIAMgAyAMBIgACEQEDEQH/xAAwAAEAAgMBAAAAAAAAAAAAAAAABAUBAgMGAQEBAQEBAAAAAAAAAAAAAAAAAQIDBP/aAAwDAQACEAMQAAACuQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGu0BQAAAAAAAABpDm+6QNY8rmado2s1Mcut5hYAAAKhLd5+8ro89ILlEry7c6EuXVjtjnuOW+eSzHn+O/P6Zyo19Cob6Dy1pZaiaV9hVWQr/z1/Z5/olWW9JMxmzKBKq1GOudN9FduPZmNCmw9c59TeefPQKC/Xy1vCv7AzoAAAADnwlxM9M4lxWt++M3kFgAAAAAAAADGUVNj0zOga5gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/8QAAv/aAAwDAQACAAMAAAAh88888888888888888888888888888888888888888888478888888888sABb288887MGAIqWJDMCL845FrWpUFbHgs8sc88MzC/MMc8888888v38888888888888888888888888888888888888888888888888888888888//EAAL/2gAMAwEAAgADAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABDwAAAAAAAAAC/umigAAABNcNdT1p/+d8QEVKScPVOt23SwEIAAMPzIcMIAAAAAAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/xAAuEQEAAgEEAAIGCwAAAAAAAAABAhEAAxIhMRMgEDAyUHKBIiMzQUJDUWFxsdH/2gAIAQIBAT8A92iPT6uU0ar5vWbb7byUeqif1hJP8e8Gy6rywgzaMnAicTHPBbiD2XkYEp7SXzyOnu389YlSa44vDcsRey+MPy0MNGKX4hWR02S08H35KJGqkOS0iI3Mv0aW7d9FBzWDaXW79sUqMH8Uch9Xq05t8M1FTnrH2pfDh3D4ch7Ecj9hP+c0kYyhdLkoMKus1pA1tOu/PO91iUlYk402cFGRKiHq0EpyGntVW/099//EADMRAAICAQIDAwgLAAAAAAAAAAECAxEABBITITEiM0EgMEJQUWFydAUQFBUjNENxkcHC/9oACAEDAQE/APVrRyIAXRlB6WK83ptKsyFy91+mnNzh1HBJWGEREeJ5v/JzT6kguJZ3G72jep+IHG00Uqh9oVSQOJGbSz7QeYyVBHIyB1cD0l6HyWYKLxWLdVrOIKJrocLELZGF9pX35HMZNPCJlEu6cpbdQKHQ466WFZ3jhLMkoT8Q2PHJWD/eCPKQEUBU8BzziG62Yz7QOXM+GKxN2tYshb0fqetvMZGTZq9uAHmw8Dj9tLGXvKADpkXcaf5r+hk3d635kf6zW/m5viw96v7ZJYZWqwMVw11kS8rs9fL0bQtCVdXZ4pOKApqxkcmj1BkjEUoDvxHbcKWs1MizTyyKOyzcvNo7RuroaYGwc1n0j9oiSNE2cu37z67/AP/EADgQAAEDAgIGBwYFBQAAAAAAAAEAAgMEERITBSExMzRyECIyQEFxgRQjUWGCoSAkcIPBMEJSYuH/2gAIAQEAAT8C/TvPivbGO7Oe1u0rPLtUbLrJe/eP9AsmINthCEY2wyeizpGbxnqEyRjth7lK2TD1DrTcLT75rr/FNcwjq26XUzDrb1T8kTND2rOajlytLo2nEPgoc0DrnuWoqaFrGl7dRQknY0FwxNXtUdrrNll7DbD4lQxiW7pCTYqnwiWUfhuPxaRqX5mU02A2oUNSWhwH3VPibDGHbba07jf3f5VfVZjspmzxVFTZLMTu2VpPfjkVPw0XIFTcWzmVTuXI8N9CiY3Ja6wvZU25VNrY/wAyoI7Sn/VVFLOzHIR1bqGCWe+DwUPuqdgf/a3WpqiaqkwtvbwavYKoa7fdP3Z8lGx8rsLdqo6SeKdrnjVr6a6iMzsxm3xCEtVSG2sfIqnlE8TXqe/tL7bcepURjZUDMH/D0aU4gcip+Gi5Aqbi2cyqdy5HhvoUXDjyVPuVS9l3N0aQ4V/otE7ZvRVY/LS8q0ZbPPL0Sdh3kojKH+6vi+Son1Rl97ith8R01s1RDP1CcNgnvqasgEF3oqWEwQtadqcD7b+7/K0jS2OcweaoKkvblv7QWkaZ0lpGC5G1Nq6iNmWDqVBTPxiVwsBsVTuXI8N9Ci4ceSp9yqXsu5uiv4V/otFbZvREAggqammpX4m3t4EL26qOrF9k7dHyWj+JHl/Tt0VG5cjOzIw+NrJk7Gw28bKGdjI7HaqTsO5u6kAixTGtjkwPaLHYVlRf4BTBhdlsaL+KYwMbYd2ljEjbI5gOG5uoYsAudp7wWMxYra/08//EACkQAAIBAwMCBQUBAAAAAAAAAAABESExQRBRYYGhMEBxsfAgcJHB0fH/2gAIAQEAAT8h+3cNwE01Kc+VRypEqVzdi7dATVEYDFvSBfT8kxTIX9blUVhhxq5qbgWf0hEBRUoFarbeHK30lfS4ocMcm1bFJKTKE2tD20UCSmhAyFEUglErfWTOkrcnVGVWVGZEdHNYuEkiK1DvPEMk6HZlnVl44HfTDfAwM7mZ7AvBtis1gs+rEh7kyS/7koNS53ZQ+aZruK6QYLgV0v2RUqzsqig6/XhuQdFWXGskbYZkVWfWEJAom65Edef1Seicp7mnYj4DY76ewLw72W/Vnf8ATu/cdiXKC8i/XnGndhadhhLHNX7BXVsj7KUMMCtA5jz6mJdowQdv7MSGjeUUeDCcFI2y1UTrZHMnsC8O9lv1Z3/T5XIrUpQhKahluq5FTr+FWlq1OsvDhtp7QbqbYnt0soHV9EjS7l9ULbx3pEpjc8uSP8kQJ/dFkI2LyzzY1ZjNtVREnW2fmHkZY5+3n//EACUQAQACAQQBBAMBAQAAAAAAAAEAETEQIUFRYUBxsfAgMHCR8f/aAAgBAQABPxD+dKBaxOYQeEHCelVhTtisq6qEtWXsiCpsLXmbxr5TZBo3wrJuXPJz6KjWDe+oBtwyzLqjxrulw0izbOWiFudZNtwfEUVynu/r4qaeQ0EcMUMugUYOR3nB6t0NsFIh5QR4n2RuUVOMjBW52iAm1J0TyE8TUZQV08SAcJq3UFbS5rDEAEjWB+Swl+Wqa/ZrvOfOYX45J9/d0GPO0QH1Z0RMY1IXFXlnvrVKPxhcsKknv7X1k0buTWpo6e7hU2VafyYGc+2YEbkfxN/tSDTEBeOWrnUONt4CsE8mN9m2f06Q0y52xUabQu8y+Pbo+37Y604UB9WdUO68v4bI9uglwjt9J+i6gJO6sVA9Jc2+u15wthD61BcYISPuq5Yu1MqKvopvekcy1625ZSvIpcaCfqMnAD6s6od15ddhUg5nQlNpNosDyMrM52B74oKFpd7V/EXVD8cA0o60oONFW0XoQ+rMSlWOzDLqbXKxq4iCs3PNCa0GoWBpQcftB4KkiNesVn/DwVfCmRKbD/Xv0y05XUyum5CEu9vN8eoX6Gj+ef/Z" alt="Votre Logo Watermark" class="watermark-image" />
+            </div>
+            <div id="preview-content">
+                <div id="preview-top-text"></div>
+                <div id="preview-question-text" class="bold-text"></div>
+            </div>
+            <div class="footer-text">
+                <i>Préparez votre TCF Canada sur <u>sku-tcf.com</u></i>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
