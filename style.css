@@ -78,7 +78,7 @@ body {
 }
 
 .button-container button:hover {
-    background-color: #0E153F;/*#e0e0e0;*/
+    background-color: #0E153F;
 }
 
 /* Zone d'Aperçu */
@@ -89,15 +89,18 @@ body {
 
 .preview-box {
     position: relative;
-    border: 5px solid #0E153F; /* Bordure bleu bien foncé */
+    border: 5px solid #0E153F;
     border-radius: 8px;
     overflow: hidden;
-    padding: 20px 20px 50px 20px; /* Espace pour le footer */
+    padding: 20px 20px 50px 20px;
     min-height: 200px;
     background-color: #fff;
 }
 
+/* CORRECTION CLÉ : Position et Z-index pour afficher le texte au-dessus du filigrane */
 #preview-content {
+    position: relative; /* Essentiel pour que le z-index fonctionne */
+    z-index: 20;       /* Place le contenu au-dessus du filigrane */
     min-height: 150px;
     color: #333;
 }
@@ -105,6 +108,8 @@ body {
 #preview-top-text, #preview-question-text {
     padding: 5px 0;
     margin-bottom: 5px;
+    font-family: ubuntu;
+    opacity:100 ;
 }
 
 #preview-top-text {
@@ -112,6 +117,7 @@ body {
     border: 1px solid #ccc;
     margin-bottom: 15px;
     padding: 10px;
+    font-family: ubuntu;
 }
 
 #preview-question-text {
@@ -133,13 +139,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Z-index 10 : Sous le contenu */
     z-index: 10;
 }
 
 .watermark-image {
-    width: 80%;
-    height: 80%;
-    opacity: 0.17;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
 }
 
 
@@ -155,6 +162,8 @@ body {
     padding: 10px 0;
     font-weight: bold;
     font-size: 0.9em;
+    /* Z-index 30 : Au-dessus de tout */
+    z-index: 30;
 }
 
 /* Pour le texte gras dans le footer */
