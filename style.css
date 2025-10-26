@@ -105,8 +105,6 @@ body {
 #preview-top-text, #preview-question-text {
     padding: 5px 0;
     margin-bottom: 5px;
-    font-family: ubuntu;
-    font-size: 23px;
 }
 
 #preview-top-text {
@@ -114,12 +112,13 @@ body {
     border: 1px solid #ccc;
     margin-bottom: 15px;
     padding: 10px;
-    font-weight: 700;
 }
 
 #preview-question-text {
     font-weight: bold;
     padding-left: 10px;
+    font-size: 22px;
+    font-family: ubuntu;
 }
 
 
@@ -140,7 +139,7 @@ body {
 .watermark-image {
     width: 80%;
     height: 80%;
-    opacity: 0.15;
+    opacity: 0.17;
 }
 
 
@@ -162,4 +161,3 @@ body {
 .footer-text strong {
     font-weight: bolder;
 }
-
